@@ -245,3 +245,17 @@ footer{
         font-size: 12px !important;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .famille {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 10px !important;
+    }
+
+    .carte {
+        width: auto !important;
+        min-width: 0 !important;
+    }
+}
