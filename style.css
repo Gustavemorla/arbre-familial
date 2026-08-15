@@ -167,21 +167,48 @@ footer{
 
 @media(max-width:768px){
 
-.parents{
-    flex-direction:column;
-}
+    .parents{
+        flex-direction:column;
+    }
 
-.personne,
-.carte{
-    width:95%;
-}
+    .personne{
+        width:90%;
+    }
 
-header h1{
-    font-size:30px;
-}
+    .famille{
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+        padding:12px;
+    }
 
-.titre{
-    font-size:25px;
-}
+    .carte{
+        width:100%;
+        padding:10px;
+    }
+
+    .personne img,
+    .carte img{
+        width:120px;
+        height:120px;
+        border-width:5px;
+    }
+
+    .carte h3{
+        font-size:15px;
+        margin-bottom:10px;
+    }
+
+    .carte p,
+    .carte li{
+        font-size:13px;
+    }
+
+    header h1{
+        font-size:30px;
+    }
+
+    .titre{
+        font-size:25px;
+    }
 
 }
