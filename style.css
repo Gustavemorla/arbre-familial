@@ -39,12 +39,36 @@ header p{
 ========================== */
 
 .parents{
+    position: relative;
     display:flex;
     justify-content:center;
     align-items:center;
     gap:50px;
     margin:20px 10px;
     flex-wrap:wrap;
+    min-height:450px;
+    overflow:hidden;
+}
+
+/* 🌳 GRAND ARBRE DERRIÈRE LES PARENTS */
+.parents::before{
+    content:"🌳";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    font-size:420px;
+    line-height:1;
+    opacity:0.30;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* Les photos restent devant l'arbre */
+.parents .personne,
+.parents .coeur{
+    position:relative;
+    z-index:2;
 }
 
 .coeur{
@@ -258,4 +282,402 @@ footer{
         width: auto !important;
         min-width: 0 !important;
     }
+}
+
+@media screen and (max-width:768px){
+
+    .parents{
+        min-height:500px;
+        gap:15px;
+    }
+
+    .parents::before{
+        font-size:300px;
+        opacity:0.25;
+    }
+
+    .parents .personne{
+        width:90%;
+    }
+}
+
+/* ==========================
+   GRAND ARBRE DÉCORATIF
+========================== */
+
+.arbre-decoration{
+    position: fixed;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 700px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* TRONC */
+.tronc{
+    position:absolute;
+    left:50%;
+    top:100px;
+    transform:translateX(-50%);
+    width:90px;
+    height:600px;
+    background:#704214;
+    border-radius:50% 50% 20% 20%;
+}
+
+/* BRANCHES */
+.branche{
+    position:absolute;
+    height:35px;
+    background:#704214;
+    border-radius:30px;
+    transform-origin:left center;
+}
+
+.branche1{
+    width:430px;
+    left:50%;
+    top:220px;
+    transform:rotate(25deg);
+}
+
+.branche2{
+    width:430px;
+    left:50%;
+    top:300px;
+    transform:rotate(-25deg);
+}
+
+.branche3{
+    width:400px;
+    left:50%;
+    top:390px;
+    transform:rotate(20deg);
+}
+
+.branche4{
+    width:400px;
+    left:50%;
+    top:470px;
+    transform:rotate(-20deg);
+}
+
+/* FEUILLES */
+.feuilles{
+    position:absolute;
+    font-size:60px;
+    white-space:nowrap;
+}
+
+.feuilles1{
+    left:5%;
+    top:130px;
+}
+
+.feuilles2{
+    right:5%;
+    top:130px;
+}
+
+.feuilles3{
+    left:35%;
+    top:40px;
+}
+
+/* =========================================
+   🌳 GRAND ARBRE GÉNÉALOGIQUE
+========================================= */
+
+.arbre-famille{
+    position:relative;
+    overflow:hidden;
+    min-height:1000px;
+}
+
+/* GRAND TRONC */
+
+.grand-arbre{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* TRONC PRINCIPAL */
+
+.tronc{
+    position:absolute;
+    width:110px;
+    height:850px;
+    background:linear-gradient(
+        90deg,
+        #4b2b16,
+        #8b572a,
+        #5a3218
+    );
+
+    left:50%;
+    top:120px;
+
+    transform:translateX(-50%);
+
+    border-radius:50% 50% 20% 20%;
+
+    box-shadow:
+        inset 10px 0 15px rgba(0,0,0,.25),
+        inset -10px 0 15px rgba(255,255,255,.08);
+}
+
+
+/* =========================================
+   BRANCHES
+========================================= */
+
+.branche{
+    position:absolute;
+    height:28px;
+    background:#70421f;
+    border-radius:30px;
+
+    transform-origin:left center;
+
+    box-shadow:
+        0 4px 5px rgba(0,0,0,.25);
+}
+
+
+/* GAUCHE */
+
+.branche-gauche-1{
+    width:430px;
+    left:50%;
+    top:280px;
+    transform:rotate(165deg);
+}
+
+.branche-gauche-2{
+    width:390px;
+    left:50%;
+    top:390px;
+    transform:rotate(195deg);
+}
+
+.branche-gauche-3{
+    width:350px;
+    left:50%;
+    top:500px;
+    transform:rotate(165deg);
+}
+
+.branche-gauche-4{
+    width:300px;
+    left:50%;
+    top:610px;
+    transform:rotate(195deg);
+}
+
+
+/* DROITE */
+
+.branche-droite-1{
+    width:430px;
+    left:50%;
+    top:280px;
+    transform:rotate(15deg);
+}
+
+.branche-droite-2{
+    width:390px;
+    left:50%;
+    top:390px;
+    transform:rotate(-15deg);
+}
+
+.branche-droite-3{
+    width:350px;
+    left:50%;
+    top:500px;
+    transform:rotate(15deg);
+}
+
+.branche-droite-4{
+    width:300px;
+    left:50%;
+    top:610px;
+    transform:rotate(-15deg);
+}
+
+
+/* =========================================
+   FEUILLAGE
+========================================= */
+
+.feuillage{
+    position:absolute;
+
+    width:300px;
+    height:180px;
+
+    background:
+        radial-gradient(circle at 20% 50%, #176b25 0 45%, transparent 46%),
+        radial-gradient(circle at 50% 30%, #238b35 0 50%, transparent 51%),
+        radial-gradient(circle at 75% 55%, #176b25 0 45%, transparent 46%),
+        radial-gradient(circle at 45% 75%, #2e9b3e 0 45%, transparent 46%);
+
+    border-radius:50%;
+
+    opacity:.8;
+}
+
+
+/* FEUILLAGE HAUT GAUCHE */
+
+.feuillage1{
+    left:5%;
+    top:30px;
+}
+
+
+/* FEUILLAGE HAUT DROITE */
+
+.feuillage2{
+    right:5%;
+    top:30px;
+}
+
+
+/* FEUILLAGE CENTRE */
+
+.feuillage3{
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+}
+
+
+/* FEUILLAGE BAS */
+
+.feuillage4{
+    left:50%;
+    top:250px;
+    transform:translateX(-50%);
+    opacity:.45;
+}
+
+
+/* =========================================
+   LES CARTES DEVANT L'ARBRE
+========================================= */
+
+.arbre-famille .titre,
+.arbre-famille .famille{
+    position:relative;
+    z-index:2;
+}
+
+
+/* Les cartes restent au-dessus des branches */
+
+.arbre-famille .carte{
+    position:relative;
+    z-index:3;
+}
+
+
+/* =========================================
+   AMÉLIORATION DU TITRE
+========================================= */
+
+.arbre-famille .titre{
+    background:#0d6efd;
+    color:white;
+
+    width:max-content;
+    max-width:90%;
+
+    margin:30px auto;
+    padding:12px 35px;
+
+    border-radius:50px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.3);
+
+    border:3px solid white;
+}
+
+/* =========================================
+   📱 VERSION TÉLÉPHONE
+========================================= */
+
+@media screen and (max-width:768px){
+
+    .arbre-famille{
+        min-height:1200px;
+    }
+
+    .grand-arbre{
+        opacity:.35;
+    }
+
+    .tronc{
+        width:60px;
+        height:1100px;
+    }
+
+    .branche{
+        height:18px;
+    }
+
+    .branche-gauche-1{
+        width:220px;
+        top:300px;
+    }
+
+    .branche-gauche-2{
+        width:200px;
+        top:500px;
+    }
+
+    .branche-gauche-3{
+        width:180px;
+        top:700px;
+    }
+
+    .branche-gauche-4{
+        width:160px;
+        top:900px;
+    }
+
+    .branche-droite-1{
+        width:220px;
+        top:300px;
+    }
+
+    .branche-droite-2{
+        width:200px;
+        top:500px;
+    }
+
+    .branche-droite-3{
+        width:180px;
+        top:700px;
+    }
+
+    .branche-droite-4{
+        width:160px;
+        top:900px;
+    }
+
+    .feuillage{
+        width:180px;
+        height:120px;
+    }
+
 }
